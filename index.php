@@ -86,7 +86,7 @@ if (isset($_POST['tm']) && isset($_POST['ym']) && isset($_POST['lp']) && isset($
         $pbd = round((($lp * $roi) / 100000000), 9); //Profit in BTC (per day)
         $pud = round(($pbd * $btc_rate), 2); //Profit in USD (per day)
         $a_roi_p = round(((($roi * 365) / ($ym * 25000)) * 100), 2); //Annual ROI Percentage
-        $dbl = round((25000 / $roi), 2); //200% in Days
+        $dbl = round((($ym * 25000) / $roi), 2); //2x in Days
         echo '
             <table cellpadding="10">
                 <tr>
@@ -126,7 +126,7 @@ if (isset($_POST['tm']) && isset($_POST['ym']) && isset($_POST['lp']) && isset($
                     <td>'.$a_roi_p.' %</td>
                 </tr>
                 <tr>
-                    <td><b>200% ROI</b></td>
+                    <td><b>100% ROI</b></td>
                     <td>'.$dbl.' days</td>
                 </tr>
             </table>
